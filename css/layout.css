@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+}
+
+:root {
+    --fundamental-font-size: 24px;
+    --smaller-font-size: 18px
+}
+
+/* General */
+.Link{
+    font-size: 30px;
+    border: 2px solid;
+    border-radius: 5px;
+    margin: 8px;
+    padding: 8px;
+    text-align: center;
+}
+.Link a{
+    text-decoration: none;
+}
+
+/* Home */
+
+#Area_Home_Title {
+    height: 100vh;
+}
+
+.Home_Title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 50px;
+}
+
+.Home_Subtitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 30px;
+}
+
+/* Trainer */
+.StandardButton{
+    display: inline-block;
+    border: 2px solid;
+    border-radius: 4px;
+    margin: 2px;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#MODEL *{
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.TypingArea {
+    overflow-wrap: break-word;
+    white-space: wrap;
+}
+
+.CorrectionUnit {
+    -webkit-user-select: none;
+    user-select: none;
+    font-family: Consolas, Courier, monospace;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: var(--fundamental-font-size);
+}
+
+#TypingPanel{
+    display: block;
+    position: fixed;
+    float: right;
+    top: 0;
+    right: 0;
+}
+
+textarea{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    min-height: 15vh;
+    max-height: 20vh;
+    font-family: Consolas, Courier, monospace;
+    font-size: var(--smaller-font-size);
+}
+
+/* Window */
+
+.ArticleOption {
+    font-size: auto;
+    border: 3px solid #000000;
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all;
+    transition-duration: 300ms;
+}
