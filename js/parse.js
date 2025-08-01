@@ -117,3 +117,40 @@ function antiparse(userInput) {
     }
     return output;
 }
+
+
+class Practice {
+    title;
+    author;
+    date;
+    content;
+    get keywords() {
+        var output = [];
+        for (let i = 0; i < this.title.length; i++) {
+            output.push(this.title.slice(0, i + 1));
+        }
+        for (let i = 0; i < this.author.length; i++) {
+            output.push(this.author.slice(0, i + 1));
+        }
+        for (let i = 0; i < this.date.length; i++) {
+            output.push(this.date.slice(0, i + 1));
+        }
+        for (let i = 0; i < (this.content.length / 20); i++) {
+            output.push(this.content.slice(0, i + 1));
+        }
+        return new Set(output);
+    }
+    get tokens() {
+        return getTokens(this.content);
+    }
+    constructor(title, author, date, content) {
+        this.title = title;
+        this.author = author;
+        this.date = date;
+        this.content = content;
+    }
+}
+
+
+// 初始化所有练习对象
+var processed_practices = proto_practices.map(each => new Practice(each.title, each.author, each.date, each.content));

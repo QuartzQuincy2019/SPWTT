@@ -18,6 +18,7 @@ function initializeQueue(content, destination) {
 function fillTextSelection() {
     var nodes = []
     var width = window.visualViewport.width;
+    var index = 1;
     for (eachText of proto_practices) {
         let author = eachText["author"];
         let title = eachText["title"];
@@ -26,9 +27,9 @@ function fillTextSelection() {
         option.setAttribute("data-value", title);
         option.classList.add("ArticleOption");
         if (width > 768) {
-            option.innerHTML = _LANG_SETS[__LANGUAGE]["title"] + ":" + title + " / " + _LANG_SETS[__LANGUAGE]["author"] + ":" + author + " / " + _LANG_SETS[__LANGUAGE]["date"] + ":" + date;
+            option.innerHTML = "(" + index + ") <strong>" + title + "</strong> / " + _LANG_SETS[__LANGUAGE]["author"] + ":" + author + " / " + _LANG_SETS[__LANGUAGE]["date"] + ":" + date;
         } else {
-            option.innerHTML = title;
+            option.innerHTML = "(" + index + ") <strong>" + title + "</strong>";
         }
         option.onclick = function () {
             let t = this.getAttribute("data-value");
@@ -38,6 +39,7 @@ function fillTextSelection() {
             _GLOBAL_TIMER.reset();
         }
         nodes.push(option);
+        index++;
     }
     return nodes;
 }

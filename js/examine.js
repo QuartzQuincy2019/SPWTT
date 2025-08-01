@@ -3,6 +3,8 @@ var E_Model = document.getElementById("MODEL");
 var E_Typing = document.getElementById("TYPING");
 var E_Speed = document.getElementById("Speed");
 var TEXT_LENGTH = 0;
+var KEYDOWNS = 0;
+var IS_TYPING = false;
 
 class ProgressInfo {
     errors = [];
@@ -81,6 +83,7 @@ function updateDisplay(progressInfo) {
 
 E_UserInput.addEventListener("input", () => {
     if (getUserInput().length == 1) {
+        IS_TYPING = true;
         _GLOBAL_TIMER.reset();
         _GLOBAL_TIMER.start();
     }
@@ -91,16 +94,36 @@ function getSpeed(timer, progressInfo) {
     return Math.round(correctCount / (timer.getDuration() / 60000));
 }
 
+function getKeySpeed(timer) {
+    return Math.round(KEYDOWNS / (timer.getDuration() / 60000));
+}
+
 
 E_UserInput.addEventListener("input", () => {
     var progressInfo = examine();
     updateDisplay(progressInfo);
     const speedWriter = generateWriter(__LANGUAGE, "Speed", [getSpeed(_GLOBAL_TIMER, progressInfo)]);
-    speedWriter();
     const timeWriter = generateWriter(__LANGUAGE, "Time", [_GLOBAL_TIMER.getDuration() / 1000]);
+    const keySpeedWriter = generateWriter(__LANGUAGE, "KeySpeed", [getKeySpeed(_GLOBAL_TIMER)]);
+    const progressWriter = generateWriter(__LANGUAGE, "Progress", [Math.round(progressInfo.getOverviewPercentage().toFixed(2) * 100)]);
+    speedWriter();
     timeWriter();
+    keySpeedWriter();
+    progressWriter();
+    //滚动函数执行
+    var thisChar = E_Model.children[progressInfo.userInputTokens.length - 1];
+    console.log(thisChar);
+    scrollToPosition(thisChar, 20);
     if (progressInfo.getOverviewPercentage() >= 1.0) {
         alert("本次练习结束！");
         _GLOBAL_TIMER.stop();
+        IS_TYPING = false;
+        KEYDOWNS = 0;
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (IS_TYPING) {
+        KEYDOWNS++;
     }
 });

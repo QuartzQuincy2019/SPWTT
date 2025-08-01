@@ -4,11 +4,12 @@
 
 :root {
     --fundamental-font-size: 24px;
-    --smaller-font-size: 18px
+    --model-font-size: 32px;
+    --smaller-font-size: 14px;
 }
 
 /* General */
-.Link{
+.Link {
     font-size: 30px;
     border: 2px solid;
     border-radius: 5px;
@@ -16,7 +17,8 @@
     padding: 8px;
     text-align: center;
 }
-.Link a{
+
+.Link a {
     text-decoration: none;
 }
 
@@ -45,7 +47,7 @@
 }
 
 /* Trainer */
-.StandardButton{
+.StandardButton {
     display: inline-block;
     border: 2px solid;
     border-radius: 4px;
@@ -55,7 +57,7 @@
     cursor: pointer;
 }
 
-#MODEL *{
+#MODEL * {
     transition: all;
     transition-duration: 300ms;
 }
@@ -71,23 +73,35 @@
     font-family: Consolas, Courier, monospace;
     padding-top: 1px;
     padding-bottom: 1px;
-    font-size: var(--fundamental-font-size);
+    font-size: var(--model-font-size);
 }
 
-#TypingPanel{
-    display: block;
-    position: fixed;
-    float: right;
-    top: 0;
-    right: 0;
-}
-
-textarea{
+#TYPING {
     width: 100%;
+    min-height: 17vh;
+    max-height: 20vh;
     position: fixed;
     bottom: 0;
-    min-height: 15vh;
-    max-height: 20vh;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 1fr;
+    gap: 0;
+}
+
+@media(max-width:768px) {
+    #TYPING {
+        grid-template-columns: 50% 50%;
+        font-size: var(--smaller-font-size);
+    }
+}
+
+#TypingPanel {
+    border: 2px solid;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
     font-family: Consolas, Courier, monospace;
     font-size: var(--smaller-font-size);
 }

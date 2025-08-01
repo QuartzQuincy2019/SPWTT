@@ -23,10 +23,16 @@ const _LANG_SETS = {
             "在此处输入字符……"
         ],
         "Speed": [
-            "速度：", $v(0), "有效字/分钟"
+            "速度：", $v(0), "字/分"
+        ],
+        "KeySpeed": [
+            "按键：", $v(0), "次/分"
         ],
         "Time": [
-            "时间：", $v(0), " 秒"
+            "时间：", $v(0), "秒"
+        ],
+        "Progress": [
+            "进度：", $v(0), "%"
         ]
     },
     "en": {
@@ -49,10 +55,16 @@ const _LANG_SETS = {
             "The timer will automatically start once you input anything here..."
         ],
         "Speed": [
-            "Speed: ", $v(0), " effective characters/min"
+            "Speed: ", $v(0), " characters/min"
+        ],
+        "KeySpeed": [
+            "Keydown: ", $v(0), " times/min"
         ],
         "Time": [
             "Time: ", $v(0), " s"
+        ],
+        "Progress": [
+            "Progress: ", $v(0), "%"
         ]
     }
 }

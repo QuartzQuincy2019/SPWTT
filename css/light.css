@@ -3,6 +3,13 @@
     --bg-2: #dbdbdb;
     --bg-3: #f9f9f9;
     --color-1: #000000;
+    --bg-opposite: #000000;
+    --bg-theme-1: #00b582;
+    --bg-theme-2: #0070a1;
+}
+
+#TYPING{
+    background-color: var(--bg-1);
 }
 
 .Error {
@@ -21,17 +28,28 @@
     color: #9a9a9a;
 }
 
-.StandardButton{
+.StandardButton {
     box-shadow: 1px 1px 3px gray;
 }
 
-#TypingPanel{
-    background-color: var(--bg-1);
-}
-
 .ArticleOption:hover {
-    font-weight: 900;
-    background-color: var(--color-1);
+    background-color: var(--bg-theme-2);
     box-shadow: 2px 2px 5px #b7b7b7;
     color: var(--bg-1);
+    animation-name: scaling;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scaling {
+    0% {
+        scale: 1.02;
+    }
+
+    100% {
+        scale: 1;
+    }
 }

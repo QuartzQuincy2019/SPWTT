@@ -17,13 +17,17 @@
 
 <body>
     <div class="StandardButton" onclick="windowSelectText();">点击以选择文本</div>
-    <div id="TypingPanel">
-        <p id="Speed"></p>
-        <p id="Time"></p>
-    </div>
     <div class="TypingArea" id="MODEL"></div>
     <div class="TypingArea" id="TYPING">
-        <textarea title="User Input Area" id="UserInput"></textarea>
+        <div id="TypingPanel">
+            <p id="Speed">Speed</p>
+            <p id="KeySpeed">KeySpeed</p>
+            <p id="Time">Time</p>
+            <p id="Progress">Progress</p>
+        </div>
+        <div>
+            <textarea title="User Input Area" id="UserInput"></textarea>
+        </div>
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <script src="./js/display.js"></script>
